@@ -1,0 +1,29 @@
+plugins = []
+functionsDirectory = "C:\\Users\\neil\\Downloads\\zerobounce-proxy-netlify\\zerobounce-proxy-netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\neil\\Downloads\\zerobounce-proxy-netlify\\zerobounce-proxy-netlify"
+publishOrigin = "default"
+base = "C:\\Users\\neil\\Downloads\\zerobounce-proxy-netlify\\zerobounce-proxy-netlify"
+functions = "C:\\Users\\neil\\Downloads\\zerobounce-proxy-netlify\\zerobounce-proxy-netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
