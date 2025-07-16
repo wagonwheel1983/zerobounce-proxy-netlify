@@ -1,2 +1,6 @@
 [build]
-functions = "functions"
+  functions = "functions"
+  command = "echo Skipping build"
+
+[dev]
+  functions = "functions"

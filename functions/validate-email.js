@@ -1,14 +1,16 @@
-exports.handler = async function(event, context) {
+exports.handler = async function (event, context) {
   const headers = {
-    'Access-Control-Allow-Origin': 'https://uat.simplythankyou.co.uk',
+    'Access-Control-Allow-Origin': 'https://uat.simplythankyou.co.uk', // change this to your frontend domain
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, OPTIONS'
   };
 
+  // Handle CORS preflight request
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers
+      headers,
+      body: 'OK'
     };
   }
 
@@ -31,22 +33,24 @@ exports.handler = async function(event, context) {
     };
   }
 
-  const zbUrl = `https://api.zerobounce.net/v2/validate?api_key=${apiKey}&email=${encodeURIComponent(email)}`;
-
   try {
-    const response = await fetch(zbUrl);
-    const data = await response.json();
+    const zbUrl = `https://api.zerobounce.net/v2/validate?api_key=${apiKey}&email=${encodeURIComponent(email)}`;
+    const zbResponse = await fetch(zbUrl);
+    const result = await zbResponse.json();
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify(data)
+      body: JSON.stringify(result)
     };
   } catch (error) {
     return {
       statusCode: 502,
       headers,
-      body: JSON.stringify({ error: "Fetch error", detail: error.message })
+      body: JSON.stringify({
+        error: "Validation failed",
+        message: error.message
+      })
     };
   }
 };
