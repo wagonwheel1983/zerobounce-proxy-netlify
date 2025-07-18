@@ -2,7 +2,11 @@ exports.handler = async function (event, context) {
   const allowedOrigins = [
   'https://uat.simplythankyou.co.uk',
   'https://www.simplythankyou.co.uk',
-  'https://client.simplythankyou.co.uk'
+  'https://client.simplythankyou.co.uk',
+  'https://www.simplygiftcards.co.uk',
+  'https://redeem.simplygiftcards.co.uk',
+  'https://www.simplythankyou-corporate.com',
+  'https://www.simplyhampers.co.uk'
 ];
 
 const origin = event.headers.origin;
