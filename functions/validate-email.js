@@ -1,9 +1,18 @@
 exports.handler = async function (event, context) {
-  const headers = {
-    'Access-Control-Allow-Origin': 'https://uat.simplythankyou.co.uk', // change this to your frontend domain
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET, OPTIONS'
-  };
+  const allowedOrigins = [
+  'https://uat.simplythankyou.co.uk',
+  'https://www.simplythankyou.co.uk',
+  'https://client.simplythankyou.co.uk'
+];
+
+const origin = event.headers.origin;
+const allowOrigin = allowedOrigins.includes(origin) ? origin : 'https://client.simplythankyou.co.uk';
+
+const headers = {
+  'Access-Control-Allow-Origin': allowOrigin,
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS'
+};
 
   // Handle CORS preflight request
   if (event.httpMethod === 'OPTIONS') {
