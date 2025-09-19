@@ -6,7 +6,8 @@ exports.handler = async function (event, context) {
   'https://www.simplygiftcards.co.uk',
   'https://redeem.simplygiftcards.co.uk',
   'https://www.simplythankyou-corporate.com',
-  'https://www.simplyhampers.co.uk'
+  'https://www.simplyhampers.co.uk',
+  'https://www.simplyapologise.com'
 ];
 
 const origin = event.headers.origin;
